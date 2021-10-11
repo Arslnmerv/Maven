@@ -27,7 +27,7 @@ public class C02_AssertionsYouTube {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             driver.get("https://www.youtube.com/");
-            driver.findElement(By.xpath("//*[text()='I Agree']")).click();
+           // driver.findElement(By.xpath("//*[text()='I Agree']")).click();
         }
         @Test
         public void titleTest(){

@@ -25,7 +25,7 @@ public class C05_RadioButton {
     }
 
     @Test
-    public void test(){
+    public void test() throws InterruptedException {
         //https://www.facebook.com adresine gidin
         driver.get("https://www.facebook.com");
         //driver.findElement(By.xpath("//*[.='Alle Cookies gestatten']")).click();
@@ -36,6 +36,7 @@ public class C05_RadioButton {
         //Secili degilse cinsiyet butonundan size uygun olani secin
         if (!radioButton.isSelected()){
             radioButton.click();
+            Thread.sleep(5000);
         }
     }
     @After
