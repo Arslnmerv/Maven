@@ -2,6 +2,7 @@ package myExercises;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -50,6 +51,10 @@ public class C02 {
             while (randomlySelectedItems.size()!=5) {
                 int randomNumber = (int) (Math.random()*(elementsInList.size()));
 
+//                Assert.assertFalse("rastgele torbasinda secilen eleman mevcut",randomlySelectedItems.contains(elementsInList.get(randomNumber)));
+//                randomlySelectedItems.add(elementsInList.get(randomNumber));
+
+
                 if (!randomlySelectedItems.contains(elementsInList.get(randomNumber))){
                     randomlySelectedItems.add(elementsInList.get(randomNumber));
                     String item = "//p[text()='" + randomlySelectedItems.get(randomlySelectedItems.size()-1) +"']";
@@ -59,7 +64,7 @@ public class C02 {
                 }
             }
             Thread.sleep(250);
-            driver.findElement(By.xpath("//span[@class='bag bag--float-cart-closed']")).click();
+            driver.findElement(By.xpath("//span[@class='bag bag--float-cart-closed']")).click();  //sepet
             randomlySelectedItems.stream().forEach(t-> System.out.println("-> " + t));
 
             double totalAmount = 0;
