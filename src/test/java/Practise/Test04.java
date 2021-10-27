@@ -17,6 +17,7 @@ public class Test04 {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        
         // 1) "http://automationpractice.com/" ADRESiNE GiDiN
         driver.get("http://automationpractice.com/");
 
@@ -40,6 +41,7 @@ public class Test04 {
         ///driver.findElement(By.xpath("//i[@class='icon-chevron-left left']")).click();
         driver.findElement(By.xpath("//span[@title='Continue shopping']")).click();
         Thread.sleep(2000);
+        
         // 5) CHART a gelin 3 ürün olduğunu doğrulayın
         WebElement yazi = driver.findElement(By.xpath("//span[@class='ajax_cart_product_txt_s  unvisible']"));
         Assert.assertTrue(yazi.isDisplayed());
@@ -50,15 +52,16 @@ public class Test04 {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//a[@title='Check out']")).click();
         //actions.click(driver.findElement(By.xpath("(//i[@class='icon-chevron-right right'])[1]")));
-Thread.sleep(2000);
+        Thread.sleep(2000);
+        
         // 7) toplam alışveriş miktarının 108.97 olduğunu doğrula
-
         WebElement totalPrice = driver.findElement(By.xpath("//span[@id='total_price']"));
         String actualPrice = totalPrice.getText();
         String expectedPrice = "$108.97";
 
         System.out.println("ALISVERiS TOPLAMI : " + totalPrice.getText());
-      Assert.assertTrue(actualPrice.contains("108.97"));
+        Assert.assertTrue(actualPrice.contains("108.97"));
+        
       driver.close();
     }
 }
